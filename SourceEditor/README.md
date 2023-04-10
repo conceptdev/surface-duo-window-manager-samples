@@ -1,7 +1,7 @@
 ---
 page_type: sample
 name: "Android foldable SourceEditor"
-description: "Uses the dual view layout pattern and external storage capabilities to create a source-editing app for the foldable and large screen devices."
+description: "Uses the dual view layout pattern and external storage capabilities to create a source-editing app for foldable and large screen devices."
 languages:
 - kotlin
 products:
@@ -22,6 +22,20 @@ and [SyncfusionExamples GitHub repo](https://github.com/SyncfusionExamples/Integ
 The first pass of porting the REST API code from C# to Kotlin was itself suggested by ChatGPT.
 
 > **NOTE:** in **Constants.kt** add your [OpenAI](https://platform.openai.com/docs/api-reference) key in the field `OPENAI_KEY`
+
+OpenAI examples in this app:
+
+### Completions endpoint
+
+The completions endpoint behaves like the ChatGPT test form - the entire "prompt" is treated as input and the resulting text is returned. It is used in the example to implement the "summarize" feature since the source text changes significantly. This style of interaction seems more susceptible to prompt injection 'attacks'.
+
+### Edits endpoint
+
+The edits endpoint has two parameters: input and prompt. The "input" text is our source, and the "prompt" is the instruction - in this case to perform spell and grammar checking. The intent of this endpoint is to modify ('edit') the input wihtout significantly changing it.
+
+### Undo
+
+To make it easier to play with the ChatGPT endpoints, there is a simple "undo" feature added which ONLY restores the text to the previous state before either of the ChatGPT endpoint actions.
 
 ## Features
 
@@ -47,7 +61,7 @@ This project also supports drag and drop functionality. If a file gallery is ope
 
 ## Icons
 
-SVG for icons from [material-design-icons](https://github.com/google/material-design-icons/blob/master/android/action/lightbulb/materialicons/black/res/drawable/baseline_lightbulb_24.xml).
+SVG for icons from [material-design-icons](https://github.com/google/material-design-icons/blob/master/android/action/lightbulb/materialicons/black/res/drawable/baseline_lightbulb_24.xml). Search the [Material icons font](https://fonts.google.com/icons?icon.set=Material+Icons) for useful images.
 
 ## Contributing
 
