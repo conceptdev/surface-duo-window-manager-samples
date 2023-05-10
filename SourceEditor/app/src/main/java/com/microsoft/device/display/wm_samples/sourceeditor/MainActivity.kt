@@ -212,7 +212,8 @@ class MainActivity : AppCompatActivity() {
      * Set the bounding rectangle for a configuration with a horizontal hinge
      */
     private fun setBoundsHorizontalHinge(hingeBounds: Rect) {
-        val hingeHeight = hingeBounds.bottom - hingeBounds.top
+        var hingeHeight = hingeBounds.bottom - hingeBounds.top
+        if (hingeHeight == 0) hingeHeight = 1 // Pixel Fold hack
 
         val boundingRect: View = findViewById(R.id.bounding_rect)
         val params: ViewGroup.LayoutParams = boundingRect.layoutParams
