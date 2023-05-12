@@ -60,11 +60,15 @@ class MainActivity : AppCompatActivity() {
                                 if (foldFeature.orientation == FoldingFeature.Orientation.HORIZONTAL) {
                                     var fold = horizontalFoldPosition(binding.root, foldFeature)
                                     ConstraintLayout.getSharedValues().fireNewValue(R.id.horiz_fold, fold)
-                                    binding.horizLogoImg.updatePadding(0, foldFeature.bounds.height(), 0, 0)
+                                    var foldHeight = foldFeature.bounds.height()
+                                    if (foldHeight == 0) foldHeight = 1
+                                    binding.horizLogoImg.updatePadding(0, foldHeight, 0, 0)
                                 } else {
                                     var fold = verticalFoldPosition(binding.root, foldFeature)
                                     ConstraintLayout.getSharedValues().fireNewValue(R.id.vert_fold, fold)
-                                    binding.logoImg.updatePadding(foldFeature.bounds.width(), 0, 0, 0)
+                                    var foldWidth = foldFeature.bounds.width()
+                                    if (foldWidth == 0) foldWidth = 1
+                                    binding.logoImg.updatePadding(foldWidth, 0, 0, 0)
                                 }
                             }
                         }

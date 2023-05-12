@@ -170,7 +170,9 @@ class MainActivity : AppCompatActivity() {
      */
     private fun setBoundsVerticalHinge(hingeBounds: Rect) {
         findViewById<View?>(R.id.bounding_rect)?.let { boundingRect ->
-            val hingeWidth = hingeBounds.right - hingeBounds.left
+            var hingeWidth = hingeBounds.right - hingeBounds.left
+            if (hingeWidth == 0) hingeWidth = 1 // Pixel Fold
+
             val params: ViewGroup.LayoutParams = boundingRect.layoutParams
             params.width = hingeWidth
             boundingRect.layoutParams = params
@@ -187,7 +189,9 @@ class MainActivity : AppCompatActivity() {
      */
     private fun setBoundsHorizontalHinge(hingeBounds: Rect) {
         findViewById<View?>(R.id.bounding_rect)?.let { boundingRect ->
-            val hingeHeight = hingeBounds.bottom - hingeBounds.top
+            var hingeHeight = hingeBounds.bottom - hingeBounds.top
+            if (hingeHeight == 0) hingeHeight = 1 // Pixel Fold
+
             val params: ViewGroup.LayoutParams = boundingRect.layoutParams
             params.height = hingeHeight
             boundingRect.layoutParams = params

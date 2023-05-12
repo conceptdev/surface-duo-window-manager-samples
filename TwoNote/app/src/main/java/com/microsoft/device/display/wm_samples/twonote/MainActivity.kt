@@ -302,7 +302,8 @@ class MainActivity :
      * Set the bounding rectangle for a configuration with a vertical hinge
      */
     private fun setBoundsVerticalHinge(hingeBounds: Rect) {
-        val hingeWidth = hingeBounds.right - hingeBounds.left
+        var hingeWidth = hingeBounds.right - hingeBounds.left
+        if (hingeWidth == 0) hingeWidth = 1 // Pixel Fold
 
         val boundingRect: View = findViewById(R.id.bounding_rect)
         val params: ViewGroup.LayoutParams = boundingRect.layoutParams
@@ -323,7 +324,8 @@ class MainActivity :
      * Set the bounding rectangle for a configuration with a horizontal hinge
      */
     private fun setBoundsHorizontalHinge(hingeBounds: Rect) {
-        val hingeHeight = hingeBounds.bottom - hingeBounds.top
+        var hingeHeight = hingeBounds.bottom - hingeBounds.top
+        if (hingeHeight == 0) hingeHeight = 1 // Pixel Fold
 
         val boundingRect: View = findViewById(R.id.bounding_rect)
         val params: ViewGroup.LayoutParams = boundingRect.layoutParams
