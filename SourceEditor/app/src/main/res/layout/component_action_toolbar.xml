@@ -53,4 +53,24 @@
         app:layout_constraintTop_toTopOf="@+id/list_toolbar"
         app:srcCompat="@drawable/ic_lightbulb_24px" />
 
+    <ImageView
+        android:id="@+id/btn_spellcheck"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:paddingEnd="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/list_toolbar"
+        app:layout_constraintEnd_toStartOf="@+id/btn_lightbulb"
+        app:layout_constraintTop_toTopOf="@+id/list_toolbar"
+        app:srcCompat="@drawable/ic_spellcheck_24px" />
+
+    <ImageView
+        android:id="@+id/btn_undo"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:paddingEnd="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/list_toolbar"
+        app:layout_constraintEnd_toStartOf="@+id/btn_spellcheck"
+        app:layout_constraintTop_toTopOf="@+id/list_toolbar"
+        app:srcCompat="@drawable/ic_baseline_undo_24px" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
